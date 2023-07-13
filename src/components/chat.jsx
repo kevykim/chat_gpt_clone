@@ -1,10 +1,11 @@
 
 
 
+import  './chat.css'
 
 function Chat() {
     return (
-        <div>Chat Here</div>
+        <div id="chat_container">Chat Here</div>
     )
 }
 
