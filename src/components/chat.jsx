@@ -13,14 +13,14 @@ function Chat() {
     const apiKey = import.meta.env.VITE_API_KEY
 
     
-    const onSubmit = (event) => {
+    async function onSubmit(event) {
         event.preventDefault();
         setSubmitted(true)
         const chatgpt = new OpenAIApi(new Configuration({
             apiKey: apiKey
         }))
     
-        chatgpt.createChatCompletion({
+        await chatgpt.createChatCompletion({
             model: 'gpt-3.5-turbo',
             messages: [{role: 'user', content: message}]
         }).then((res) => {
@@ -38,14 +38,16 @@ function Chat() {
 
 
     return (
-        <>
-        <form onSubmit={onSubmit} id="chat_container">
+        <div className='chat_div'>
+        <form onSubmit={onSubmit} className='chat_form'>
             <div>Questions??</div>
+            <div>
             <input type='text' placeholder='Type your question...' value={message} onChange={(event) => setMessage(event.target.value)}></input>
             <button type='submit'>Send</button>
-        </form>
+            </div>
         {submitted === true ? <div>{result}</div> : <div></div>}
-        </>
+        </form>
+        </div>
     )
 }
 

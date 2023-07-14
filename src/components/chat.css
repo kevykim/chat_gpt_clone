@@ -1,7 +1,17 @@
-#chat_container {
-    display: flex;
+
+.chat_div {
     justify-content: center;
-    align-items: center;
+    display: flex;
     flex-direction: column;
-    height: 90vh;
+    align-items: center;
+    height: 100vh
+}
+
+.chat_form {
+    justify-content: center;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        height: 125px;
 }
